@@ -1,0 +1,40 @@
+<% layout("/layout/boilerplate.ejs") %>
+<style>
+    p{
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+    .form-control-lg{
+        font-weight: bold;
+        font-size: 1.5rem;
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    }
+    .but{
+        display: flex; justify-content: center;
+    }
+    .btn{
+        border: 1px solid;
+    }
+</style>
+<p class="offset-1 col-md-8 offset-md-2 mt-2">Draft your Blog</p><br>
+<div class="offset-1 col-md-8 offset-md-2">
+    <form action="/blogs" method="post" class="needs-validation" novalidate>
+        <div>
+            <input type="text" placeholder="Enter Title" name="blog[title]" class="form-control form-control-lg" required>
+            <div class="invalid-feedback">
+                Title is required.
+            </div>
+        </div>
+        <br>
+        <div>
+            <textarea name="blog[content]" class="form-control" required placeholder="Write Your Story" rows="12"></textarea>
+            <div class="invalid-feedback">
+                Required.
+            </div>
+        </div>
+        <br>
+        <div class="mb-3 but">
+            <button class="btn btn-outline-success">Publish</button>
+        </div>
+    </form>
+</div>

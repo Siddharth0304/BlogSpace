@@ -1,0 +1,20 @@
+<% layout("/layout/boilerplate.ejs") %>
+<div  class="col-10 offset-1 col-md-8 offset-md-2 mt-3 show-hd">
+    <%if(blog.author){%>
+        <p><%=blog.author.username%></p>
+    <%}%>
+    <div class="container-fluid">           
+        <h1><b><%=blog.title%></b></h1>
+        <p><%- blog.content.replace(/\n/g, '<br>') %></p>
+    </div>
+    </a>
+    <%if(curruser && curruser._id.equals(blog.author._id)){%>
+    <div style="display: flex;">
+        <a href="/blogs/<%=blog._id%>/edit" class="btn btn-dark" style="background-color: #35221E">Edit</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <form action="/blogs/<%=blog._id%>?_method=DELETE" method="POST">
+            <button class="btn btn-dark" style="border: 1px solid #FCC735; background-color: #FCC735">Delete</button>
+        </form>
+    </div>
+    <%}%>
+    
+</div>

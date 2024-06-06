@@ -1,0 +1,29 @@
+<% layout("/layout/boilerplate.ejs") %>
+<style>
+    a{
+        text-decoration: none;
+        color: black;
+    }
+</style>
+<h1 class="offset-1 col-md-8 offset-md-2 mt-2" style="font-weight: bold;">Stories</h1>
+<br>
+<div class="offset-1 col-md-8 offset-md-2">
+    <%for(blog of bl){%>        
+            <%if(blog.author){%>
+                <p><%=blog.author.username%></p>
+            <%}%>
+            <a href="/blogs/<%=blog._id%>">
+                <div class="container-fluid">           
+                    <p style="font-size: 1.3rem;"><b><%=blog.title%></b></p>
+                    <%if(blog.content.length>300){%>
+                        <p style="font-size: 1.15rem;"><%- blog.content.replace(/\n/g, '<br>').substring(0,250) %>...</p>
+                    <%}%>
+                    <%if(blog.content.length<300){%>
+                        <p style="font-size: 1.15rem;"><%- blog.content.replace(/\n/g, '<br>') %></p>
+                    <%}%>
+                </div>
+            </a>
+            <hr>
+        
+    <%}%>
+</div>
